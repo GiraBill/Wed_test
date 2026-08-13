@@ -1,4 +1,4 @@
-const menuItems = [
+let menuItems = [
   { name: "Освежающий лимонад", category: "fruit", label: "Фруктовые чаи", price: "400 ₸", volume: "700 мл", pos: "0% 0%", description: "Лёгкий холодный лимонад с лимоном и льдом. Одна из самых освежающих позиций меню WEDRINK." },
   { name: "Освежающий маракуйя-чай", category: "fruit", label: "Фруктовые чаи", price: "600 ₸", volume: "700 мл", pos: "50% 0%", description: "Яркий фруктовый чай с маракуйей, льдом и тропической кислинкой." },
   { name: "Двойной маракуйя-коктейль", category: "cocktail", label: "Коктейли", price: "750 ₸", volume: "700 мл", pos: "100% 0%", description: "Насыщенный коктейль с двойной порцией маракуйи и сочной тропической текстурой." },
@@ -28,7 +28,7 @@ function renderMenu(filter = "all") {
     card.type = "button";
     card.setAttribute("aria-label", `Открыть: ${item.name}`);
     card.innerHTML = `
-      <div class="card-image menu-image" style="background-position:${item.pos}" role="img" aria-label="${item.name}"></div>
+      <div class="card-image menu-image" style="${item.image_url ? `background-image:url(\'${item.image_url}\');background-size:cover;background-position:center` : `background-position:${item.pos}`}" role="img" aria-label="${item.name}"></div>
       <div class="card-content">
         <div class="card-top"><h3>${item.name}</h3><strong>${item.price}</strong></div>
         <p>${item.label} · ${item.volume}</p>
@@ -40,8 +40,21 @@ function renderMenu(filter = "all") {
 
 function openModal(item, source) {
   lastFocusedCard = source;
-  modalImage.style.backgroundPosition = item.pos;
-  modalImage.setAttribute("aria-label", item.name);
+  const modalVideo = document.querySelector("#modalVideo");
+  if (item.video_url) {
+    modalImage.hidden = true;
+    modalVideo.hidden = false;
+    modalVideo.src = item.video_url;
+    modalVideo.play().catch(() => {});
+  } else {
+    modalVideo.hidden = true;
+    modalVideo.removeAttribute("src");
+    modalImage.hidden = false;
+    modalImage.style.backgroundImage = item.image_url ? `url("${item.image_url}")` : "";
+    modalImage.style.backgroundSize = item.image_url ? "cover" : "";
+    modalImage.style.backgroundPosition = item.image_url ? "center" : item.pos;
+    modalImage.setAttribute("aria-label", item.name);
+  }
   modalTitle.textContent = item.name;
   modalCategory.textContent = item.label;
   modalDescription.textContent = item.description;
@@ -54,6 +67,9 @@ function openModal(item, source) {
 }
 
 function closeModal() {
+  const video = document.querySelector("#modalVideo");
+  video.pause();
+  video.removeAttribute("src");
   modal.classList.remove("open");
   modal.setAttribute("aria-hidden", "true");
   document.body.classList.remove("modal-open");
@@ -71,4 +87,35 @@ document.querySelectorAll(".filter").forEach(button => {
 document.querySelectorAll("[data-close-modal]").forEach(element => element.addEventListener("click", closeModal));
 document.addEventListener("keydown", event => { if (event.key === "Escape" && modal.classList.contains("open")) closeModal(); });
 document.querySelector("#year").textContent = new Date().getFullYear();
-renderMenu();
+
+const categoryLabels = { fruit: "Фруктовые чаи", cocktail: "Коктейли", milk: "Молочные чаи", icecream: "Мороженое" };
+
+async function loadDatabaseMenu() {
+  if (!window.menuDb) { renderMenu(); return; }
+  const { data } = await window.menuDb.from("menu_items").select("*").eq("is_active", true).order("sort_order");
+  if (data?.length) {
+    menuItems = data.map(item => ({
+      ...item,
+      label: categoryLabels[item.category] || item.category,
+      price: `${item.price.toLocaleString("ru-RU")} ₸`,
+      pos: "0% 0%"
+    }));
+  }
+  renderMenu();
+}
+
+async function revealEditorAccess() {
+  if (!window.menuDb) return;
+  const { data: { session } } = await window.menuDb.auth.getSession();
+  if (!session) return;
+  const { data: allowed } = await window.menuDb.rpc("is_menu_editor");
+  if (!allowed) return;
+  const link = document.createElement("a");
+  link.href = "editor.html";
+  link.className = "editor-link";
+  link.textContent = "Управление меню";
+  document.body.append(link);
+}
+
+loadDatabaseMenu();
+revealEditorAccess();
