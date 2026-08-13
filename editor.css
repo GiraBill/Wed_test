@@ -169,3 +169,26 @@ textarea { min-height: 130px; resize: vertical; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
 }
+
+/* Compact editor header matching the public site */
+.editor-shell { width: 100%; padding-top: 0; }
+.editor-header { min-height: 118px; padding: 22px clamp(22px, 5vw, 78px); color: #fff; background: var(--accent); }
+.editor-header .topbar { display: flex; width: min(1180px, 100%); min-height: 74px; margin: 0 auto; justify-content: space-between; align-items: center; }
+.editor-header .brand-logo { width: clamp(195px, 20vw, 260px); height: 68px; }
+.header-actions { display: flex; align-items: center; gap: 24px; }
+.editor-header .mini-link { color: #fff; }
+.editor-header .quiet-button { border-color: rgba(255,255,255,.45); color: #fff; background: rgba(255,255,255,.10); }
+.access-card, #editor { width: min(1180px, calc(100% - 40px)); margin-left: auto; margin-right: auto; }
+#editor { padding-top: 58px; }
+.page-title { color: var(--ink); font-size: clamp(2.35rem, 5vw, 4.8rem); }
+.workspace-heading:has(.page-title) { margin-bottom: 24px; }
+@media (max-width: 760px) {
+  .editor-shell { width: 100%; }
+  .editor-header { min-height: 96px; padding: 14px 18px; }
+  .editor-header .topbar { display: flex; min-height: 68px; }
+  .editor-header .brand-logo { width: 180px; height: 58px; }
+  .header-actions { gap: 12px; }
+  .editor-header .mini-link { display: none; }
+  .access-card, #editor { width: min(100% - 24px, 1180px); }
+  #editor { padding-top: 42px; }
+}
