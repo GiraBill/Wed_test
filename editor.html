@@ -8,24 +8,20 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="editor.css?v=2">
+  <link rel="stylesheet" href="style.css?v=20260813-8">
+  <link rel="stylesheet" href="editor.css?v=3">
 </head>
 <body>
   <main class="editor-shell">
-    <header class="topbar">
-      <a class="back-link" href="index.html"><span>←</span> На сайт</a>
-      <div class="topbar-title"><span class="brand-dot">W</span><strong>WEDRINK</strong></div>
-      <button class="quiet-button" id="logout" hidden>Выйти</button>
+    <header class="editor-header">
+      <nav class="topbar" aria-label="Навигация редактора">
+        <a class="brand" href="index.html" aria-label="WEDRINK — на главную"><span class="brand-logo" aria-hidden="true"></span></a>
+        <div class="header-actions">
+          <a class="mini-link" href="index.html">На сайт <span>↗</span></a>
+          <button class="quiet-button" id="logout" hidden>Выйти</button>
+        </div>
+      </nav>
     </header>
-
-    <section class="editor-hero">
-      <div>
-        <p class="eyebrow">Панель управления</p>
-        <h1>Меню под вашим<br><em>контролем.</em></h1>
-        <p>Добавляйте новые напитки, фотографии и видео — изменения появятся на сайте автоматически.</p>
-      </div>
-      <div class="hero-badge"><span>01</span><small>редактор<br>подключён</small></div>
-    </section>
 
     <section id="access" class="access-card">
       <div class="access-icon">↗</div>
@@ -40,8 +36,7 @@
 
     <section id="editor" hidden>
       <div class="workspace-heading">
-        <div><p class="eyebrow">Добавление</p><h2>Новая позиция</h2></div>
-        <p>Заполните карточку продукта. Фото используется в сетке, а видео запускается при открытии позиции.</p>
+        <div><p class="eyebrow">Редактор меню</p><h1 class="page-title">Новая позиция</h1></div>
       </div>
 
       <form id="itemForm" class="editor-card">
