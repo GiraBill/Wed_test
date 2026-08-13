@@ -180,7 +180,7 @@ textarea { min-height: 130px; resize: vertical; }
 .editor-header .quiet-button { border-color: rgba(255,255,255,.45); color: #fff; background: rgba(255,255,255,.10); }
 .access-card, #editor { width: min(1180px, calc(100% - 40px)); margin-left: auto; margin-right: auto; }
 #editor { padding-top: 58px; }
-.page-title { color: var(--ink); font-size: clamp(2.35rem, 5vw, 4.8rem); }
+.page-title { color: var(--ink); font-size: clamp(1.85rem, 3.4vw, 3rem); }
 .workspace-heading:has(.page-title) { margin-bottom: 24px; }
 @media (max-width: 760px) {
   .editor-shell { width: 100%; }
@@ -191,4 +191,11 @@ textarea { min-height: 130px; resize: vertical; }
   .editor-header .mini-link { display: none; }
   .access-card, #editor { width: min(100% - 24px, 1180px); }
   #editor { padding-top: 42px; }
+}
+
+.editor-header .mini-link,
+.editor-header .quiet-button { font-size: .78rem; }
+.editor-header .quiet-button { padding: 8px 14px; }
+@media (max-width: 760px) {
+  .editor-header .quiet-button { padding: 7px 12px; font-size: .74rem; }
 }
