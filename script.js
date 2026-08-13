@@ -94,12 +94,12 @@ async function loadDatabaseMenu() {
   if (!window.menuDb) { renderMenu(); return; }
   const { data } = await window.menuDb.from("menu_items").select("*").eq("is_active", true).order("sort_order");
   if (data?.length) {
-    menuItems = data.map(item => ({
+    menuItems = [...menuItems, ...data.map(item => ({
       ...item,
       label: categoryLabels[item.category] || item.category,
       price: `${item.price.toLocaleString("ru-RU")} ₸`,
       pos: "0% 0%"
-    }));
+    }))];
   }
   renderMenu();
 }
