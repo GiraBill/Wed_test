@@ -1,13 +1,13 @@
 let menuItems = [
-  { name: "Освежающий лимонад", category: "fruit", label: "Фруктовые чаи", price: "400 ₸", volume: "700 мл", pos: "0% 0%", description: "Лёгкий холодный лимонад с лимоном и льдом. Одна из самых освежающих позиций меню WEDRINK." },
-  { name: "Освежающий маракуйя-чай", category: "fruit", label: "Фруктовые чаи", price: "600 ₸", volume: "700 мл", pos: "50% 0%", description: "Яркий фруктовый чай с маракуйей, льдом и тропической кислинкой." },
-  { name: "Двойной маракуйя-коктейль", category: "cocktail", label: "Коктейли", price: "750 ₸", volume: "700 мл", pos: "100% 0%", description: "Насыщенный коктейль с двойной порцией маракуйи и сочной тропической текстурой." },
-  { name: "Манго-грейпфрутовый коктейль", category: "cocktail", label: "Коктейли", price: "800 ₸", volume: "500 мл", pos: "0% 50%", description: "Сладкое манго и свежая горчинка грейпфрута в ярком холодном коктейле." },
-  { name: "Черничный чай", category: "fruit", label: "Фруктовые чаи", price: "650 ₸", volume: "500 мл", pos: "50% 50%", description: "Холодный чай с кусочками ягод и насыщенным черничным вкусом." },
-  { name: "Чай «Шесть виноградин»", category: "fruit", label: "Фруктовые чаи", price: "700 ₸", volume: "500 мл", pos: "100% 50%", description: "Фирменный виноградный чай с фруктовыми кусочками и льдом." },
-  { name: "Клубника-кокос чай", category: "milk", label: "Молочные чаи", price: "900 ₸", volume: "500 мл", pos: "0% 100%", description: "Нежный молочный чай с кокосом и клубникой, холодный и сливочный." },
-  { name: "Шоколад-кокос чай", category: "milk", label: "Молочные чаи", price: "900 ₸", volume: "500 мл", pos: "50% 100%", description: "Шоколадный молочный чай с кокосом и шариками тапиоки." },
-  { name: "Клубничный сандэ", category: "icecream", label: "Мороженое", price: "650 ₸", volume: "400 мл", pos: "100% 100%", description: "Клубничный сандэ с мягким мороженым и ягодным вкусом." }
+  { name: "Освежающий лимонад", category: "fruit", label: "Фруктовые чаи", price: "400 ₸", volume: "700 мл", pos: "0% 0%", image_url: "assets/menu-1.webp", description: "Лёгкий холодный лимонад с лимоном и льдом. Одна из самых освежающих позиций меню WEDRINK." },
+  { name: "Освежающий маракуйя-чай", category: "fruit", label: "Фруктовые чаи", price: "600 ₸", volume: "700 мл", pos: "50% 0%", image_url: "assets/menu-2.webp", description: "Яркий фруктовый чай с маракуйей, льдом и тропической кислинкой." },
+  { name: "Двойной маракуйя-коктейль", category: "cocktail", label: "Коктейли", price: "750 ₸", volume: "700 мл", pos: "100% 0%", image_url: "assets/menu-3.webp", description: "Насыщенный коктейль с двойной порцией маракуйи и сочной тропической текстурой." },
+  { name: "Манго-грейпфрутовый коктейль", category: "cocktail", label: "Коктейли", price: "800 ₸", volume: "500 мл", pos: "0% 50%", image_url: "assets/menu-4.webp", description: "Сладкое манго и свежая горчинка грейпфрута в ярком холодном коктейле." },
+  { name: "Черничный чай", category: "fruit", label: "Фруктовые чаи", price: "650 ₸", volume: "500 мл", pos: "50% 50%", image_url: "assets/menu-5.webp", description: "Холодный чай с кусочками ягод и насыщенным черничным вкусом." },
+  { name: "Чай «Шесть виноградин»", category: "fruit", label: "Фруктовые чаи", price: "700 ₸", volume: "500 мл", pos: "100% 50%", image_url: "assets/menu-6.webp", description: "Фирменный виноградный чай с фруктовыми кусочками и льдом." },
+  { name: "Клубника-кокос чай", category: "milk", label: "Молочные чаи", price: "900 ₸", volume: "500 мл", pos: "0% 100%", image_url: "assets/menu-7.webp", description: "Нежный молочный чай с кокосом и клубникой, холодный и сливочный." },
+  { name: "Шоколад-кокос чай", category: "milk", label: "Молочные чаи", price: "900 ₸", volume: "500 мл", pos: "50% 100%", image_url: "assets/menu-8.webp", description: "Шоколадный молочный чай с кокосом и шариками тапиоки." },
+  { name: "Клубничный сандэ", category: "icecream", label: "Мороженое", price: "650 ₸", volume: "400 мл", pos: "100% 100%", image_url: "assets/menu-9.webp", description: "Клубничный сандэ с мягким мороженым и ягодным вкусом." }
 ];
 
 const grid = document.querySelector("#menuGrid");
@@ -98,7 +98,7 @@ async function loadDatabaseMenu() {
       ...item,
       label: categoryLabels[item.category] || item.category,
       price: `${item.price.toLocaleString("ru-RU")} ₸`,
-      pos: "0% 0%"
+      pos: "0% 0%", image_url: "assets/menu-10.webp"
     }))];
   }
   renderMenu();
