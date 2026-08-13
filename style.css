@@ -92,7 +92,7 @@ footer p { color: #a9b8b2; }
 }
 
 @media (max-width: 900px) {
-  .hero { min-height: 500px; }
+  .hero { min-height: 560px; }
   .hero-content { margin-top: 62px; }
   .menu-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .section-heading { align-items: start; flex-direction: column; gap: 12px; }
@@ -139,7 +139,7 @@ footer p { color: #a9b8b2; }
 }
 
 @media (max-height: 520px) and (orientation: landscape) {
-  .hero { min-height: 560px; }
+  .hero { min-height: 500px; }
   .modal-card { display: grid; grid-template-columns: 1fr 1fr; max-height: calc(100svh - 18px); }
   .modal-image { min-height: 0; aspect-ratio: 1 / 1; }
   .modal-info { padding: 56px 28px 28px; overflow-y: auto; }
