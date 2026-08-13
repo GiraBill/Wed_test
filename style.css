@@ -188,3 +188,6 @@ footer p { color: #a9b8b2; }
   .contact-row { margin: 22px 0 20px; font-size: .82rem; }
   .hero .glovo-button { min-height: 48px; padding-block: 13px; }
 }
+
+.card-image { aspect-ratio: 1 / 1; background-size: cover !important; background-position: center !important; }
+.modal-image { aspect-ratio: 1 / 1; background-size: cover !important; background-position: center !important; }
