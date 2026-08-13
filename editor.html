@@ -1,9 +1,76 @@
-<!doctype html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WEDRINK — редактор меню</title><link rel="stylesheet" href="editor.css?v=1"></head><body>
-<main class="editor-shell"><header><a href="index.html">← На сайт</a><h1>Редактор меню</h1><button id="logout" hidden>Выйти</button></header>
-<section id="access" class="panel"><h2>Доступ редактора</h2><p>Сайт отправит персональную ссылку на разрешённый email. После перехода доступ сохранится в этом браузере.</p><button id="magicLink">Получить ссылку на kurtkabeya@gmail.com</button><p id="accessStatus"></p></section>
-<section id="editor" hidden><form id="itemForm" class="panel"><h2>Новая позиция</h2><div class="form-grid">
-<label>Название<input name="name" required></label><label>Категория<select name="category"><option value="fruit">Фруктовые чаи</option><option value="cocktail">Коктейли</option><option value="milk">Молочные чаи</option><option value="icecream">Мороженое</option></select></label>
-<label>Цена, ₸<input name="price" type="number" min="0" required></label><label>Объём<input name="volume" placeholder="500 мл"></label>
-<label class="wide">Описание<textarea name="description"></textarea></label><label>Фото<input name="image" type="file" accept="image/*"></label><label>Видео<input name="video" type="file" accept="video/*"></label>
-</div><button type="submit">Добавить в меню</button><p id="formStatus"></p></form><section class="panel"><h2>Позиции из базы</h2><div id="items"></div></section></section>
-</main><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js?v=1"></script><script src="editor.js?v=1"></script></body></html>
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Закрытый редактор меню WEDRINK">
+  <title>WEDRINK — редактор меню</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="editor.css?v=2">
+</head>
+<body>
+  <main class="editor-shell">
+    <header class="topbar">
+      <a class="back-link" href="index.html"><span>←</span> На сайт</a>
+      <div class="topbar-title"><span class="brand-dot">W</span><strong>WEDRINK</strong></div>
+      <button class="quiet-button" id="logout" hidden>Выйти</button>
+    </header>
+
+    <section class="editor-hero">
+      <div>
+        <p class="eyebrow">Панель управления</p>
+        <h1>Меню под вашим<br><em>контролем.</em></h1>
+        <p>Добавляйте новые напитки, фотографии и видео — изменения появятся на сайте автоматически.</p>
+      </div>
+      <div class="hero-badge"><span>01</span><small>редактор<br>подключён</small></div>
+    </section>
+
+    <section id="access" class="access-card">
+      <div class="access-icon">↗</div>
+      <div>
+        <p class="eyebrow">Безопасный вход</p>
+        <h2>Доступ редактора</h2>
+        <p>Отправим персональную ссылку на разрешённую почту. После перехода доступ сохранится в этом браузере.</p>
+      </div>
+      <button id="magicLink">Получить ссылку</button>
+      <p class="status-message" id="accessStatus"></p>
+    </section>
+
+    <section id="editor" hidden>
+      <div class="workspace-heading">
+        <div><p class="eyebrow">Добавление</p><h2>Новая позиция</h2></div>
+        <p>Заполните карточку продукта. Фото используется в сетке, а видео запускается при открытии позиции.</p>
+      </div>
+
+      <form id="itemForm" class="editor-card">
+        <div class="form-grid">
+          <label><span>Название</span><input name="name" placeholder="Например, Манго-кокос" required></label>
+          <label><span>Категория</span><select name="category"><option value="fruit">Фруктовые чаи</option><option value="cocktail">Коктейли</option><option value="milk">Молочные чаи</option><option value="icecream">Мороженое</option></select></label>
+          <label><span>Цена, ₸</span><input name="price" type="number" min="0" placeholder="900" required></label>
+          <label><span>Объём</span><input name="volume" placeholder="500 мл"></label>
+          <label class="wide"><span>Описание</span><textarea name="description" placeholder="Коротко расскажите о вкусе и составе"></textarea></label>
+          <label class="upload-field"><span>Фото продукта</span><input name="image" type="file" accept="image/*"><small>JPG, PNG или WEBP</small></label>
+          <label class="upload-field"><span>Видео продукта</span><input name="video" type="file" accept="video/*"><small>MP4 или WEBM</small></label>
+        </div>
+        <div class="form-actions">
+          <button class="primary-button" type="submit"><span>＋</span> Добавить в меню</button>
+          <p class="status-message" id="formStatus"></p>
+        </div>
+      </form>
+
+      <section class="items-section">
+        <div class="workspace-heading compact">
+          <div><p class="eyebrow">Управление</p><h2>Позиции из базы</h2></div>
+          <p>Здесь можно временно скрыть продукт или удалить его полностью.</p>
+        </div>
+        <div class="editor-card items-card"><div id="items"></div></div>
+      </section>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase-config.js?v=1"></script>
+  <script src="editor.js?v=1"></script>
+</body>
+</html>
