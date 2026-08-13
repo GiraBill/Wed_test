@@ -73,7 +73,7 @@ footer p { color: #a9b8b2; }
 .modal-backdrop { position: absolute; inset: 0; background: rgba(8, 30, 23, .30); backdrop-filter: blur(4px); }
 .modal-card { position: relative; width: min(940px, 100%); min-height: 540px; display: grid; grid-template-columns: 1.08fr .92fr; background: #fff; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); transform: translateY(35px) scale(.96); opacity: 0; transition: transform .35s cubic-bezier(.2,.8,.2,1), opacity .3s ease; }
 .modal.open .modal-card { transform: translateY(0) scale(1); opacity: 1; }
-.modal-image { min-height: 520px; }
+.modal-image { width: 100%; min-height: 0; aspect-ratio: 1 / 1; align-self: center; background-color: var(--soft); }
 .close-button { position: absolute; z-index: 2; top: 20px; left: 20px; padding: 11px 16px; border: 0; border-radius: 999px; background: rgba(255,255,255,.92); box-shadow: 0 5px 20px rgba(0,0,0,.13); cursor: pointer; font-weight: 800; }
 .modal-info { align-self: center; padding: 54px; }
 .modal-category { color: var(--accent-dark); font-size: .75rem; font-weight: 800; text-transform: uppercase; letter-spacing: .14em; }
@@ -96,7 +96,7 @@ footer p { color: #a9b8b2; }
   .section-heading { align-items: start; flex-direction: column; gap: 12px; }
   .section-heading > p { margin: 0; }
   .modal-card { width: min(680px, 100%); display: block; max-height: calc(100svh - 36px); overflow-y: auto; }
-  .modal-image { min-height: 330px; aspect-ratio: 16 / 9; }
+  .modal-image { min-height: 0; aspect-ratio: 1 / 1; }
   .modal-info { padding: 38px 34px 42px; }
 }
 
@@ -118,7 +118,7 @@ footer p { color: #a9b8b2; }
   .card-image { height: auto; aspect-ratio: 4 / 3; }
   .modal { padding: 10px; align-items: end; }
   .modal-card { width: 100%; max-height: calc(100svh - 20px); border-radius: 26px 26px 18px 18px; }
-  .modal-image { min-height: 260px; aspect-ratio: 4 / 3; }
+  .modal-image { min-height: 0; aspect-ratio: 1 / 1; }
   .close-button { top: 14px; left: 14px; min-height: 44px; }
   .modal-info { padding: 30px 23px 34px; }
   .modal-info h2 { font-size: clamp(2rem, 10vw, 3rem); }
@@ -132,14 +132,14 @@ footer p { color: #a9b8b2; }
   .brand-mark { width: 42px; height: 42px; }
   h1 { font-size: 2.55rem; }
   .hero-copy { font-size: .96rem; }
-  .modal-image { min-height: 220px; }
+  .modal-image { min-height: 0; }
   .modal-meta { align-items: flex-end; }
 }
 
 @media (max-height: 520px) and (orientation: landscape) {
   .hero { min-height: 560px; }
   .modal-card { display: grid; grid-template-columns: 1fr 1fr; max-height: calc(100svh - 18px); }
-  .modal-image { min-height: 100%; aspect-ratio: auto; }
+  .modal-image { min-height: 0; aspect-ratio: 1 / 1; }
   .modal-info { padding: 56px 28px 28px; overflow-y: auto; }
 }
 
