@@ -172,9 +172,9 @@ textarea { min-height: 130px; resize: vertical; }
 
 /* Compact editor header matching the public site */
 .editor-shell { width: 100%; padding-top: 0; }
-.editor-header { min-height: 118px; padding: 22px clamp(22px, 5vw, 78px); color: #fff; background: var(--accent); }
-.editor-header .topbar { display: flex; width: min(1180px, 100%); min-height: 74px; margin: 0 auto; justify-content: space-between; align-items: center; }
-.editor-header .brand-logo { width: clamp(195px, 20vw, 260px); height: 68px; }
+.editor-header { min-height: 86px; padding: 10px clamp(22px, 5vw, 78px); color: #fff; background: var(--accent); }
+.editor-header .topbar { display: flex; width: min(1180px, 100%); min-height: 66px; margin: 0 auto; justify-content: space-between; align-items: center; }
+.editor-header .brand-logo { width: 178px; height: 54px; background-size: calc(100% - 18px) auto; }
 .header-actions { display: flex; align-items: center; gap: 24px; }
 .editor-header .mini-link { color: #fff; }
 .editor-header .quiet-button { border-color: rgba(255,255,255,.45); color: #fff; background: rgba(255,255,255,.10); }
@@ -184,9 +184,9 @@ textarea { min-height: 130px; resize: vertical; }
 .workspace-heading:has(.page-title) { margin-bottom: 24px; }
 @media (max-width: 760px) {
   .editor-shell { width: 100%; }
-  .editor-header { min-height: 96px; padding: 14px 18px; }
-  .editor-header .topbar { display: flex; min-height: 68px; }
-  .editor-header .brand-logo { width: 180px; height: 58px; }
+  .editor-header { min-height: 76px; padding: 8px 14px; }
+  .editor-header .topbar { display: flex; min-height: 60px; }
+  .editor-header .brand-logo { width: 158px; height: 48px; }
   .header-actions { gap: 12px; }
   .editor-header .mini-link { display: none; }
   .access-card, #editor { width: min(100% - 24px, 1180px); }
