@@ -55,7 +55,7 @@ h1 em { font-style: normal; color: var(--ink); }
 .menu-card { appearance: none; text-align: left; padding: 0; border: 1px solid var(--line); background: #fff; border-radius: 24px; overflow: hidden; cursor: pointer; transition: transform .25s ease, box-shadow .25s ease, opacity .25s ease; }
 .menu-card:hover { transform: translateY(-7px); box-shadow: 0 18px 45px rgba(9, 66, 45, .12); }
 .menu-card.hidden { display: none; }
-.menu-image { background-image: url("assets/menu-sprite.png"); background-repeat: no-repeat; background-size: 300% 200%; }
+.menu-image { background-image: url("assets/wedrink-menu-v2.png"); background-repeat: no-repeat; background-size: 300% 300%; }
 .card-image { height: 250px; transition: transform .35s ease; }
 .menu-card:hover .card-image { transform: scale(1.025); }
 .card-content { padding: 20px 20px 23px; }
@@ -75,7 +75,7 @@ footer p { color: #a9b8b2; }
 .modal-backdrop { position: absolute; inset: 0; background: rgba(8, 30, 23, .30); backdrop-filter: blur(4px); }
 .modal-card { position: relative; width: min(940px, 100%); min-height: 540px; display: grid; grid-template-columns: 1.08fr .92fr; background: #fff; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); transform: translateY(35px) scale(.96); opacity: 0; transition: transform .35s cubic-bezier(.2,.8,.2,1), opacity .3s ease; }
 .modal.open .modal-card { transform: translateY(0) scale(1); opacity: 1; }
-.modal-image { width: 100%; min-height: 0; aspect-ratio: 1 / 1; align-self: center; background-color: var(--soft); background-size: auto 200%; }
+.modal-image { width: 100%; min-height: 0; aspect-ratio: 1 / 1; align-self: center; background-color: var(--soft); background-size: auto 300%; }
 .close-button { position: absolute; z-index: 2; top: 20px; left: 20px; padding: 11px 16px; border: 0; border-radius: 999px; background: rgba(255,255,255,.92); box-shadow: 0 5px 20px rgba(0,0,0,.13); cursor: pointer; font-weight: 800; }
 .modal-info { align-self: center; padding: 54px; }
 .modal-category { color: var(--accent-dark); font-size: .75rem; font-weight: 800; text-transform: uppercase; letter-spacing: .14em; }
