@@ -98,7 +98,7 @@ async function loadDatabaseMenu() {
       ...item,
       label: categoryLabels[item.category] || item.category,
       price: `${item.price.toLocaleString("ru-RU")} ₸`,
-      pos: "0% 0%", image_url: "assets/menu-10.webp"
+      pos: "0% 0%"
     }))];
   }
   renderMenu();
