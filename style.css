@@ -176,3 +176,15 @@ footer p { color: #a9b8b2; }
   .modal-video { aspect-ratio: 1 / 1; }
   .editor-link { right: 12px; bottom: 12px; }
 }
+
+
+/* Compact public hero on phones */
+@media (max-width: 620px) {
+  .hero { min-height: 455px; padding-bottom: 28px; }
+  .hero-content { margin-top: 32px; }
+  .hero-content .eyebrow { margin-bottom: 12px; font-size: .66rem; }
+  .hero h1 { font-size: clamp(2.1rem, 10.8vw, 3.25rem); line-height: .98; }
+  .hero-copy { display: none; }
+  .contact-row { margin: 22px 0 20px; font-size: .82rem; }
+  .hero .glovo-button { min-height: 48px; padding-block: 13px; }
+}
