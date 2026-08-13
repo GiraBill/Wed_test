@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Drink Test — меню авторских напитков, мороженого, еды и десертов.">
+  <title>Drink Test — меню</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="site-shell" id="siteShell">
+    <header class="hero">
+      <nav class="topbar" aria-label="Основная навигация">
+        <a class="brand" href="#top" aria-label="Drink Test — на главную">
+          <span class="brand-mark">DT</span>
+          <span>DRINK TEST</span>
+        </a>
+        <a class="mini-link" href="#menu">Смотреть меню <span>↓</span></a>
+      </nav>
+
+      <div class="hero-content" id="top">
+        <p class="eyebrow">Свежесть в каждом заказе</p>
+        <h1>Вкус, который<br><em>освежает день.</em></h1>
+        <p class="hero-copy">Авторские чаи, сливочное джелато и лёгкая еда — готовим ежедневно из понятных ингредиентов.</p>
+        <div class="contact-row">
+          <a href="tel:+77001234567">+7 700 123 45 67</a>
+          <span>ул. Абая, 12 · ежедневно 10:00–23:00</span>
+        </div>
+        <a class="glovo-button" href="https://glovoapp.com/" target="_blank" rel="noopener noreferrer">Заказать в Glovo <span>↗</span></a>
+      </div>
+      <div class="hero-orbit" aria-hidden="true"><span>tea · gelato · food · </span></div>
+    </header>
+
+    <main id="menu">
+      <section class="menu-section" aria-labelledby="menuTitle">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Выберите настроение</p>
+            <h2 id="menuTitle">Наше меню</h2>
+          </div>
+          <p>Нажмите на позицию, чтобы рассмотреть её ближе и узнать состав.</p>
+        </div>
+
+        <div class="filters" role="group" aria-label="Фильтр меню">
+          <button class="filter active" type="button" data-filter="all">Всё</button>
+          <button class="filter" type="button" data-filter="tea">Чаи</button>
+          <button class="filter" type="button" data-filter="icecream">Мороженое</button>
+          <button class="filter" type="button" data-filter="food">Лёгкая еда</button>
+          <button class="filter" type="button" data-filter="dessert">Десерты</button>
+        </div>
+
+        <div class="menu-grid" id="menuGrid"></div>
+      </section>
+    </main>
+
+    <footer>
+      <div>
+        <a class="brand footer-brand" href="#top"><span class="brand-mark">DT</span><span>DRINK TEST</span></a>
+        <p>Заберите любимый вкус с собой.</p>
+      </div>
+      <a class="glovo-button light" href="https://glovoapp.com/" target="_blank" rel="noopener noreferrer">Перейти в Glovo <span>↗</span></a>
+      <p class="copyright">© <span id="year"></span> Drink Test</p>
+    </footer>
+  </div>
+
+  <div class="modal" id="itemModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <article class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="close-button" type="button" data-close-modal aria-label="Закрыть карточку">← Назад к меню</button>
+      <div class="modal-image menu-image" id="modalImage" role="img"></div>
+      <div class="modal-info">
+        <p class="modal-category" id="modalCategory"></p>
+        <h2 id="modalTitle"></h2>
+        <p id="modalDescription"></p>
+        <div class="modal-meta">
+          <span id="modalVolume"></span>
+          <strong id="modalPrice"></strong>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
