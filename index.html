@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20260813-6">
+  <link rel="stylesheet" href="style.css?v=20260813-7">
 </head>
 <body>
   <div class="site-shell" id="siteShell">
@@ -68,7 +68,7 @@
     <div class="modal-backdrop" data-close-modal></div>
     <article class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
       <button class="close-button" type="button" data-close-modal aria-label="Закрыть карточку">← Назад к меню</button>
-      <div class="modal-image menu-image" id="modalImage" role="img"></div>
+      <div class="modal-image menu-image" id="modalImage" role="img"></div><video class="modal-video" id="modalVideo" controls playsinline muted loop hidden></video>
       <div class="modal-info">
         <p class="modal-category" id="modalCategory"></p>
         <h2 id="modalTitle"></h2>
@@ -81,6 +81,6 @@
     </article>
   </div>
 
-  <script src="script.js?v=20260813-5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js?v=1"></script><script src="script.js?v=20260813-7"></script>
 </body>
 </html>
